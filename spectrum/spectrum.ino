@@ -108,6 +108,8 @@ void loop() {
 void windowMean(float* magnitudes, int lowBin, int highBin, float* windowMean, float* otherMean) {
     *windowMean = 0;
     *otherMean = 0;
+    // Notice the first magnitude bin is skipped because it represents the
+    // average power of the signal.
     for (int i = 1; i < FFT_SIZE/2; ++i) {
       if (i >= lowBin && i <= highBin) {
         *windowMean += magnitudes[i];
@@ -191,9 +193,7 @@ void spectrumLoop() {
   // in the associated frequency window.
   float intensity, otherMean;
   for (int i = 0; i < NEO_PIXEL_COUNT; ++i) {
-    // Notice the first magnitude value is skipped because it represents average
-    // power of the signal.
-    windowMean(magnitudes+1, 
+    windowMean(magnitudes, 
                frequencyToBin(frequencyWindow[i]),
                frequencyToBin(frequencyWindow[i+1]),
                &intensity,

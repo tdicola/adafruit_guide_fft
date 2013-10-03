@@ -108,6 +108,8 @@ void loop() {
 void windowMean(float* magnitudes, int lowBin, int highBin, float* windowMean, float* otherMean) {
     *windowMean = 0;
     *otherMean = 0;
+    // Notice the first magnitude bin is skipped because it represents the
+    // average power of the signal.
     for (int i = 1; i < FFT_SIZE/2; ++i) {
       if (i >= lowBin && i <= highBin) {
         *windowMean += magnitudes[i];

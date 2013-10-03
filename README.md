@@ -1,6 +1,6 @@
 # FFT: Fun with Fourier Transforms
 
-Code in support of the 'FFT: Fun with Fourier Transforms' guide on the [Adafruit learning system](http://learn.adafruit.com/).
+Code in support of the ['FFT: Fun with Fourier Transforms' guide](http://learn.adafruit.com/fft-fun-with-fourier-transforms) on the [Adafruit learning system](http://learn.adafruit.com/).
 
 ## License
 

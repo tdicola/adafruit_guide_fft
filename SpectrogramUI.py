@@ -147,6 +147,12 @@ class MainWindow(QtGui.QMainWindow):
 		self._sliderChanged(0) # Force graphs to update their limits with initial values.
 		self.show()
 
+	def closeEvent(self, event):
+		# Close the serial port before exiting.
+		if self.isDeviceOpen():
+			self.openDevice.close()
+		event.accept()
+
 	def updateStatus(self, message=''):
 		"""Update the status bar of the widnow with the provided message text."""
 		self.status.showMessage(message)
